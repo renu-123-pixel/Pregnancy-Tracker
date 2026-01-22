@@ -1,0 +1,25 @@
+# Android
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# Build
+/build
+/.gradle
+/.idea
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Executables
+*.exe
+*.msi
+*.zip
+*.rar
+*.7z
+
+# Logs
+*.log
