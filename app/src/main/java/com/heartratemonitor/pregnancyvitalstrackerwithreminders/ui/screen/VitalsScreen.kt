@@ -225,7 +225,6 @@ fun IconText(iconRes: Int, text: String) {
             modifier = Modifier.size(24.dp)
         )
         Spacer(Modifier.width(10.dp))
-
         Text(text)
     }
 }

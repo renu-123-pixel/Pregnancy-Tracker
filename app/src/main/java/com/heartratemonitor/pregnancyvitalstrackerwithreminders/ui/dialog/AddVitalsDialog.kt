@@ -46,7 +46,6 @@ fun AddVitalsDialog(
     var heart by remember { mutableStateOf("") }
 
     Dialog(onDismissRequest = onDismiss) {
-
         Card(
             shape = RoundedCornerShape(18.dp),
             modifier = Modifier.fillMaxWidth()
@@ -55,8 +54,6 @@ fun AddVitalsDialog(
             Column(
                 modifier = Modifier.padding(20.dp)
             ) {
-
-
                 Text(
                     "Add Vitals",
                     fontSize = 20.sp,
@@ -73,7 +70,6 @@ fun AddVitalsDialog(
                         label = { Text("Sys BP") },
                         modifier = Modifier.weight(1f)
                     )
-
                     Spacer(Modifier.width(10.dp))
 
                     OutlinedTextField(

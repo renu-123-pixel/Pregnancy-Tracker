@@ -26,17 +26,19 @@ object NotificationHelper {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
-        val notification = NotificationCompat.Builder(context, "vitals_channel")
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setContentTitle("Time to log your vitals!")
-            .setContentText(
-                "Stay on top of your health. Please update your vitals now!"
-            )
-            .setContentIntent(pendingIntent)
-            .setAutoCancel(true)
-            .build()
 
-        NotificationManagerCompat.from(context)
-            .notify(1, notification)
+            val notification = NotificationCompat.Builder(context, "vitals_channel")
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setContentTitle("Time to log your vitals!")
+                .setContentText(
+                    "Stay on top of your health. Please update your vitals now!"
+                )
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
+                .build()
+
+            NotificationManagerCompat.from(context)
+                .notify(1, notification)
+
     }
 }
