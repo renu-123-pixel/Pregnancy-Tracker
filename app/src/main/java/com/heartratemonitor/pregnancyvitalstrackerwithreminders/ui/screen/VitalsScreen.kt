@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -29,9 +30,11 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -61,6 +64,7 @@ val PurplePrimary = Color(0xFF9B59B6)
 val PurpleLight = Color(0xFFECCBFF)
 val PurpleDark = Color(0xFF8E44AD)
 val TextDark = Color(0xFF2C2C2C)
+val pink = Color(0xFFFFC0CB)
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -150,57 +154,61 @@ fun VitalItem(
 
 @Composable
 fun VitalsCard(vital: VitalsEntity) {
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 6.dp),
+            shape = RoundedCornerShape(14.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = PurpleLight
+            ),
+            elevation = CardDefaults.cardElevation(6.dp)
+        ) {
 
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 6.dp),
-        shape = RoundedCornerShape(14.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = PurpleLight
-        ),
-        elevation = CardDefaults.cardElevation(6.dp)
-    ) {
+            Column {
 
-        Column {
+                Row(
+                    modifier = Modifier
+                        .padding(14.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
 
-            Row(
-                modifier = Modifier
-                    .padding(14.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
+                    Column {
+                        IconText(Icons.Default.Favorite, "${vital.heartRate} bpm")
+                        Spacer(Modifier.height(6.dp))
+                        IconText(R.drawable.scale, "${vital.weight} kg")
+                    }
 
-                Column {
-                    IconText(Icons.Default.Favorite, "${vital.heartRate} bpm")
-                    Spacer(Modifier.height(6.dp))
-                    IconText(R.drawable.scale, "${vital.weight} kg")
+                    Column {
+                        IconText(
+                            R.drawable.heartrate,
+                            "${vital.systolic}/${vital.diastolic} mmHg"
+                        )
+                        Spacer(Modifier.height(6.dp))
+                        IconText(
+                            R.drawable.childcare,
+                            "${vital.babyKicks} kicks"
+                        )
+                    }
                 }
 
-                Column {
-                    IconText(R.drawable.heartrate,
-                        "${vital.systolic}/${vital.diastolic} mmHg")
-                    Spacer(Modifier.height(6.dp))
-                    IconText(R.drawable.childcare,
-                        "${vital.babyKicks} kicks")
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(PurplePrimary)
+                        .padding(8.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = formatDate(vital.timestamp),
+                        color = Color.White,
+                        fontSize = 13.sp
+                    )
                 }
-            }
-
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(PurplePrimary)
-                    .padding(8.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = formatDate(vital.timestamp),
-                    color = Color.White,
-                    fontSize = 13.sp
-                )
             }
         }
     }
-}
+
 
 @Composable
 fun IconText(icon: ImageVector, text: String) {
