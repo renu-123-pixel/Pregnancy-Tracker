@@ -121,8 +121,8 @@ This project utilizes a modern tech stack based on Kotlin and Android Jetpack.
 
 ## Screenshots
 
-![Entered Vitals](app/screenshots/enteredVitals.jpeg)
-![Vital Entry](app/screenshots/vitalEntry.jpeg)
+![Entered Vitals](screenshots/enteredVitals.jpeg)
+![Vital Entry](screenshots/vitalEntry.jpeg)
 
 ```
 🛠 Setup
