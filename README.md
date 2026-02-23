@@ -118,6 +118,12 @@ This project utilizes a modern tech stack based on Kotlin and Android Jetpack.
 •Room Database: Used for robust local data persistence.
 ◦androidx.room:room-runtime: The core Room library.
 ```
+
+## Screenshots
+
+![Entered Vitals](app/screenshots/enteredVitals.jpeg)
+![Vital Entry](app/screenshots/vitalEntry.jpeg)
+
 ```
 🛠 Setup
 
